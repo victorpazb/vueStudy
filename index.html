@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta viewport="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta charset="utf-8" />
+    <title>Vue.js</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="app">
+        
+        <div id="input">
+            <span>Digite o nome: </span>
+            <input v-model="pedido.name"></input>
+            <span><br>Digite a quantidade: </span>
+            <input v-model="pedido.qtd"></input> 
+            <br>
+            <button id="add-btn" v-if="!digitando" @click="addPedido()">ADICIONAR</button>
+            <span v-if="digitando"> {{state}}</span>
+        </div>
+
+        
+        
+        <div id="outcome">
+            
+            <dl>
+                <bold style="margin: 10px">PEDIDOS NA FILA: </bold>     
+                <div style="display: flex; justify-content: center;"><h1 v-if="vazia">FILA VAZIA!</h1></div>
+                <ul>
+                    <li v-for="pedido in pedidos"><bold>{{pedido.name}}</bold>.............{{pedido.qtd}} refeições</li>
+                </ul>
+                <button id="delete-btn"style="color: white" @click="deletePedido()">PEDIDO CONCLUÍDO</button>
+            </dl>
+            <dl>
+                <bold style="padding-left: 10px; padding-top: 10px">QUANTIDADE DE PEDIDOS NA FILA:  </bold>     
+                <span style="font-size: 50px; padding-left: 10px"> {{pedidos.length}}</span>
+            </dl>
+        </div>    
+        
+    </div>
+    <script src="/scipt.js"></script>
+    
+  </body>
+</html>
