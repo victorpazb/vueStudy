@@ -11,6 +11,24 @@
   justify-content: center;
 }
 
+h1 {
+  /*background-color: white;*/
+  padding: 10px;
+  animation: blinkingText 1s infinite;
+}
+
+@keyframes blinkingText {
+  0% {
+    color: white;
+    background-color: blue;
+  }
+
+  100% {
+    color: white;
+    background-color: red;
+  }
+}
+
 #outcome {
   background-color: #aaac;
   border: 1px solid #000;
@@ -29,7 +47,7 @@ span {
 
 #add-btn {
   background-color: #7bfa0c;
-  border: bold;
+  border: 1px solid;
   cursor: pointer;
   display: inline;
   margin-top: 30px;
