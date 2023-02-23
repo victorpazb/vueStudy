@@ -10,13 +10,18 @@ let app = new Vue({
     state: "Digitando...",
     vazia: true,
     editBox: false,
+    currentIndex: null,
   },
 
   methods: {
-    // showEditBox(index) {
-    //   this.editBox = !this.editBox;
-    //   editListItem(index);
-    // },
+    showEditBox(index) {
+      this.editBox = !this.editBox;
+      this.currentIndex = index;
+    },
+
+    closeEditBox() {
+      this.editBox = !this.editBox;
+    },
     // async editListItem(index) {
     //   let newName = await document.getElementById("newName").value;
 

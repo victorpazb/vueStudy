@@ -27,10 +27,22 @@
                
                   <ul>
                     <li v-for="(pedido, index) in pedidos">
-                      <bold>{{pedido.name}}</bold>.............{{pedido.qtd}} refeições
-                      <button class="button-item-list">edit</button>
-                      <button class="button-item-list delete" @click="deleteOne(index)">delete</button>
+                      <bold>{{pedido.name.toUpperCase()}}</bold>.............{{pedido.qtd}} refeições
+                      <button class="button-item-list" @click="showEditBox(index)">edit</button>
+                      <button class="button-item-list delete" @click="deleteOne(index)">delete</button>  
                     </li>
+
+                    <form v-if="editBox">
+                      <div v-bind="app">
+                        Nome atual:... {{pedidos[currentIndex].name}} <br>
+                        Qtd atual:... {{pedidos[currentIndex].qtd}}
+                      </div>
+
+                      <input v-model="pedidos[currentIndex].name"></input>
+                      <input v-model="pedidos[currentIndex].qtd"></input>
+                      <button @click="closeEditBox()">EDITAR</button>
+                    </form>
+                    
                   </ul>
                 <button id="delete-btn"style="color: white" @click="deletePedido()">PEDIDO CONCLUÍDO</button>
             </dl>
