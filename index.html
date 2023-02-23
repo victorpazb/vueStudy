@@ -19,17 +19,19 @@
             <button id="add-btn" v-if="!digitando" @click="addPedido()">ADICIONAR</button>
             <span v-if="digitando"> {{state}}</span>
         </div>
-
-        
-        
         <div id="outcome">
             
             <dl>
                 <bold style="margin: 10px">PEDIDOS NA FILA: </bold>
                 <div style="display: flex; justify-content: center;"><h1 v-if="vazia">FILA VAZIA!</h1></div>
-                <ul>
-                    <li v-for="pedido in pedidos"><bold>{{pedido.name}}</bold>.............{{pedido.qtd}} refeições</li>
-                </ul>
+               
+                  <ul>
+                    <li v-for="(pedido, index) in pedidos">
+                      <bold>{{pedido.name}}</bold>.............{{pedido.qtd}} refeições
+                      <button class="button-item-list">edit</button>
+                      <button class="button-item-list delete" @click="deleteOne(index)">delete</button>
+                    </li>
+                  </ul>
                 <button id="delete-btn"style="color: white" @click="deletePedido()">PEDIDO CONCLUÍDO</button>
             </dl>
             <dl>

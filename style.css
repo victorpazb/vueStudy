@@ -1,3 +1,7 @@
+* {
+  border-radius: 5px;
+}
+
 #input {
   background-color: #aaac;
   border: 1px solid #000;
@@ -12,9 +16,8 @@
 }
 
 h1 {
-  /*background-color: white;*/
   padding: 10px;
-  animation: blinkingText 1s infinite;
+  animation: blinkingText 2s infinite;
 }
 
 @keyframes blinkingText {
@@ -68,7 +71,7 @@ li {
   padding: 5px;
   margin-top: 3px;
   background-color: #c3e22a;
-  width: 30%;
+  width: 35%;
   border: 1px solid #000;
   margin: auto;
   margin-bottom: 5px;
@@ -96,4 +99,38 @@ ul {
   display: flex;
   border-radius: 5px;
   justify-content: center;
+}
+
+.floating-box {
+  position: absolute;
+  top: 60px;
+  right: 280px;
+  left: 280px;
+  width: 300px;
+  height: 150px;
+  background-color: #cbcbcbe2;
+  border: 1px solid #000;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.button-item-list {
+  /*position: fixed;*/
+  width: 35px;
+  height: 25px;
+  background-color: #cbcbcbe2;
+  font-size: 9px;
+  color: black;
+  margin: 1px;
+  margin-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.delete {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: white;
+  background-color: #f4320b;
 }
