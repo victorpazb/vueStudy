@@ -2,7 +2,6 @@
 <html>
   <head>
     <meta viewport="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <meta charset="utf-8" />
     <title>Vue.js</title>
     <link rel="stylesheet" href="style.css">
@@ -19,17 +18,31 @@
             <button id="add-btn" v-if="!digitando" @click="addPedido()">ADICIONAR</button>
             <span v-if="digitando"> {{state}}</span>
         </div>
-
-        
-        
         <div id="outcome">
             
             <dl>
-                <bold style="margin: 10px">PEDIDOS NA FILA: </bold>     
+                <bold style="margin: 10px">PEDIDOS NA FILA: </bold>
                 <div style="display: flex; justify-content: center;"><h1 v-if="vazia">FILA VAZIA!</h1></div>
-                <ul>
-                    <li v-for="pedido in pedidos"><bold>{{pedido.name}}</bold>.............{{pedido.qtd}} refeições</li>
-                </ul>
+               
+                  <ul>
+                    <li v-for="(pedido, index) in pedidos">
+                      <bold>{{pedido.name.toUpperCase()}}</bold>.............{{pedido.qtd}} refeições
+                      <button class="button-item-list" @click="showEditBox(index)">edit</button>
+                      <button class="button-item-list delete" @click="deleteOne(index)">delete</button>  
+                    </li>
+
+                    <form v-if="editBox">
+                      <div v-bind="app">
+                        Nome atual:... {{pedidos[currentIndex].name}} <br>
+                        Qtd atual:... {{pedidos[currentIndex].qtd}}
+                      </div>
+
+                      <input v-model="pedidos[currentIndex].name"></input>
+                      <input v-model="pedidos[currentIndex].qtd"></input>
+                      <button @click="closeEditBox()">EDITAR</button>
+                    </form>
+                    
+                  </ul>
                 <button id="delete-btn"style="color: white" @click="deletePedido()">PEDIDO CONCLUÍDO</button>
             </dl>
             <dl>
@@ -39,6 +52,7 @@
         </div>    
         
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="/scipt.js"></script>
     
   </body>
