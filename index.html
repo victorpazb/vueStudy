@@ -8,7 +8,7 @@
   </head>
   <body>
     <div>
-      <img src="/images/img.jpg">
+      <img id="main-logo" src="/images/img.jpg">
       <span  style="font-size: 80px; justify-content: center  ">MARMITICAS</span>
     </div>
     
@@ -33,7 +33,7 @@
                     <li v-for="(pedido, index) in pedidos" v-cloak>
                       <bold>{{pedido.name}}</bold>.............{{pedido.qtd}} refeições
                       <button class="button-item-list" @click="showEditBox(index)">edit</button>
-                      <button class="button-item-list delete" @click="deleteOne(index)">delete</button>  
+                      <button class="button-item-list delete" @click="deleteOne(index)"><img id="delete-img" src="images/trash.jpg"></button>  
                     </li>
 
                     <form v-if="editBox">

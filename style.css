@@ -70,7 +70,7 @@ li {
   justify-content: center;
   padding: 5px;
   margin-top: 3px;
-  background-color: #c3e22a;
+  background-color: rgb(251, 251, 169);
   width: 35%;
   border: 1px solid #000;
   margin: auto;
@@ -142,7 +142,7 @@ html {
   background-position: center; */
 }
 
-img {
+#main-logo {
   display: inline;
   width: 15%;
   height: 15%;
@@ -151,4 +151,11 @@ img {
   padding: 10px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   border: 1px solid #000;
+}
+
+#delete-img {
+  box-shadow: none;
+  border: none;
+  width: 15px;
+  height: 15px;
 }
