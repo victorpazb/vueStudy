@@ -16,9 +16,9 @@
         
         <div id="input">
             <span>Digite o nome: </span>
-            <input v-model="pedido.name"></input>
+            <input type="text" v-model="pedido.name"></input>
             <span><br>Digite a quantidade: </span>
-            <input v-model="pedido.qtd"></input> 
+            <input type="number" v-model="pedido.qtd"></input> 
             <br>
             <button id="add-btn" v-if="!digitando" @click="addPedido()">ADICIONAR</button>
             <span v-if="digitando"> {{state}}</span>
