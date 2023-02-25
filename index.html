@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <div>
+      <img src="/images/img.jpg">
+      <span  style="font-size: 80px; justify-content: center  ">MARMITICAS</span>
+    </div>
+    
     <div id="app">
         
         <div id="input">
@@ -25,21 +30,21 @@
                 <div style="display: flex; justify-content: center;"><h1 v-if="vazia">FILA VAZIA!</h1></div>
                
                   <ul>
-                    <li v-for="(pedido, index) in pedidos">
-                      <bold>{{pedido.name.toUpperCase()}}</bold>.............{{pedido.qtd}} refeições
+                    <li v-for="(pedido, index) in pedidos" v-cloak>
+                      <bold>{{pedido.name}}</bold>.............{{pedido.qtd}} refeições
                       <button class="button-item-list" @click="showEditBox(index)">edit</button>
                       <button class="button-item-list delete" @click="deleteOne(index)">delete</button>  
                     </li>
 
                     <form v-if="editBox">
-                      <div v-bind="app">
+                      <div v-bind="app"> 
                         Nome atual:... {{pedidos[currentIndex].name}} <br>
                         Qtd atual:... {{pedidos[currentIndex].qtd}}
                       </div>
 
                       <input v-model="pedidos[currentIndex].name"></input>
                       <input v-model="pedidos[currentIndex].qtd"></input>
-                      <button @click="closeEditBox()">EDITAR</button>
+                      <button @click="closeEditBox()">OK</button>
                     </form>
                     
                   </ul>

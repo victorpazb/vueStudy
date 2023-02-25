@@ -22,13 +22,6 @@ let app = new Vue({
     closeEditBox() {
       this.editBox = !this.editBox;
     },
-    // async editListItem(index) {
-    //   let newName = await document.getElementById("newName").value;
-
-    //   this.$set(this.pedidos, index, { name: newName });
-    //   document.getElementById("newName").value = "";
-    //   this.showEditBox();
-    // },
 
     deleteOne(index) {
       this.pedidos.splice(index, 1);
