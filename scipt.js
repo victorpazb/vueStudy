@@ -39,6 +39,8 @@ let app = new Vue({
         } else {
           alert("PEDIDO DEVE TER QUANTIDADE MAIOR QUE ZERO. \n TENTE DE NOVO!");
         }
+      } else {
+        alert("PEDIDO DEVE TER NOME. \n TENTE DE NOVO!");
       }
     },
 

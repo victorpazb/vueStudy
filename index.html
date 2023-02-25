@@ -16,7 +16,7 @@
         
         <div id="input">
             <span>Digite o nome: </span>
-            <input type="text" v-model="pedido.name"></input>
+            <input type="text" v-model.trim="pedido.name"></input>
             <span><br>Digite a quantidade: </span>
             <input type="number" v-model="pedido.qtd"></input> 
             <br>
