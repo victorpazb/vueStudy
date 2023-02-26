@@ -66,6 +66,7 @@ span {
 }
 
 li {
+  font-size: 20px;
   display: flex;
   justify-content: center;
   padding: 5px;
@@ -158,4 +159,9 @@ html {
   border: none;
   width: 15px;
   height: 15px;
+}
+
+favicon {
+  width: 5px;
+  height: 5px;
 }

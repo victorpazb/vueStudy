@@ -3,8 +3,9 @@
   <head>
     <meta viewport="width=device-width, initial-scale=1.0">
     <meta charset="utf-8" />
-    <title>Vue.js</title>
+    <title>MARMITICAS</title>
     <link rel="stylesheet" href="style.css">
+    <favicon src="images/favicon.ico" href=“”>
   </head>
   <body>
     <div>
@@ -23,6 +24,7 @@
             <button id="add-btn" v-if="!digitando" @click="addPedido()">ADICIONAR</button>
             <span v-if="digitando"> {{state}}</span>
         </div>
+        <!-- <input-form @add-pedido="addPedido" :pedido="pedido"></input-form>   -->
         <div id="outcome">
             
             <dl>
@@ -31,7 +33,7 @@
                
                   <ul>
                     <li v-for="(pedido, index) in pedidos" v-cloak>
-                      <bold>{{pedido.name}}</bold>.............{{pedido.qtd}} refeições
+                      <bold>{{pedido.name}}</bold>...........................{{pedido.qtd}} refeições
                       <button class="button-item-list" @click="showEditBox(index)">edit</button>
                       <button class="button-item-list delete" @click="deleteOne(index)"><img id="delete-img" src="images/trash.jpg"></button>  
                     </li>
@@ -59,6 +61,6 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="/scipt.js"></script>
-    
+  
   </body>
 </html>

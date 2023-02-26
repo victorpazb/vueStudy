@@ -1,3 +1,31 @@
+Vue.component("input-form", {
+  data: function () {
+    return {
+      pedido: {
+        name: "",
+        qtd: undefined,
+      },
+    };
+  },
+
+  methods: {
+    addPedido() {
+      this.$emit("add-pedido", this.pedido);
+      this.pedido = {};
+    },
+  },
+
+  template: ` <div id="input">
+                <span>Digite o nome: </span>
+                <input type="text" v-model.trim="this.pedido.name"></input>
+                <span><br>Digite a quantidade: </span>
+                <input type="number" v-model="pedido.qtd"></input> 
+                <br>
+                <button id="add-btn" v-if="!digitando" @click="addPedido()">ADICIONAR</button>
+                <span v-if="digitando"> {{state}}</span>
+              </div>`,
+});
+
 let app = new Vue({
   el: "#app",
   data: {
