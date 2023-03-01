@@ -10,7 +10,6 @@ Vue.component("input-form", {
 
   methods: {
     addPedido() {
-      console.log("FLONA", this.pedido);
       this.$emit("add-pedido", this.pedido);
       this.pedido = {};
     },
@@ -58,7 +57,6 @@ let app = new Vue({
       }
     },
     addPedido(pedido) {
-      console.log("BLAU", pedido);
       if (pedido.name.length > 0) {
         pedido.name = pedido.name.toUpperCase();
         if (pedido.qtd === undefined || pedido.qtd > 0) {
