@@ -12,23 +12,12 @@
       <img id="main-logo" src="/images/img.jpg">
       <span  style="font-size: 80px; justify-content: center  ">MARMITICAS</span>
     </div>
-    
     <div id="app">
-        
-        <!-- <div id="input">
-            <span style="font-size: 25px; font-weight: bold">Digite o nome: </span>
-            <input type="text" v-model.trim="pedido.name"></input>
-            <span style="font-size: 25px; font-weight: bold"><br>Digite a quantidade: </span>
-            <input type="number" v-model="pedido.qtd"></input> 
-            <br>
-            <button id="add-btn" v-if="!digitando" @click="addPedido()">ADICIONAR</button>
-            <span v-if="digitando"> {{state}}</span>
-        </div> -->
         <input-form @add-pedido="addPedido"></input-form>  
         <div id="outcome">
             
             <dl>
-                <bold style="margin: 10px">PEDIDOS NA FILA: </bold>
+                <bold style="margin: 10px">ORDERS IN LINE: </bold>
                 <div style="display: flex; justify-content: center;"><h1 v-if="vazia">EMPTY QUEUE!</h1></div>
                
                   <ul>
@@ -50,14 +39,13 @@
                     </form>
                     
                   </ul>
-                <button id="delete-btn"style="color: white" @click="deletePedido()">PEDIDO CONCLUÍDO</button>
+                <button id="delete-btn"style="color: white" @click="deletePedido()">ORDER FINISHED</button>
             </dl>
             <dl>
-                <bold style="padding-left: 10px; padding-top: 10px">QUANTIDADE DE PEDIDOS NA FILA:  </bold>     
+                <bold style="padding-left: 10px; padding-top: 10px">NUMBER OF ORDERS STILL IN LINE:  </bold>     
                 <span style="font-size: 50px; padding-left: 10px"> {{pedidos.length}}</span>
             </dl>
         </div>    
-        
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="/scipt.js"></script>

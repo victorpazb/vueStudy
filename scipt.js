@@ -16,13 +16,15 @@ Vue.component("input-form", {
   },
 
   template: ` <div id="input">
-                <span>Digite o nome: </span>
+                <span style="font-size: 25px; font-weight: bold">Digite o nome: </span>
                 <input type="text" v-model="pedido.name"></input>
-                <span><br>Digite a quantidade: </span>
+                <span style="font-size: 25px; font-weight: bold"><br>Digite a quantidade: </span>
                 <input type="number" v-model="pedido.qtd"></input> 
                 <br>
-                <button id="add-btn" @click="addPedido()">ADICIONAR</button>
+                <button id="add-btn" @click="addPedido()">ADD ORDER</button>
               </div>`,
+  // <button id="add-btn" v-if="!digitando" @click="addPedido()">ADICIONAR</button>
+  // <span v-if="digitando"> {{state}}</span>
 });
 
 let app = new Vue({
