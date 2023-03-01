@@ -48,15 +48,6 @@ span {
   display: flex;
 }
 
-#add-btn {
-  background-color: #7bfa0c;
-  border: 1px solid;
-  cursor: pointer;
-  display: inline;
-  margin-top: 30px;
-  width: 185px;
-}
-
 #delete-btn {
   background-color: #bb5c5c;
   border: bold;
@@ -134,6 +125,27 @@ ul {
   border-bottom-right-radius: 5px;
   color: white;
   background-color: #f4320b;
+}
+
+input {
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  width: 90%;
+}
+
+#add-btn {
+  background-color: #7bfa0c;
+  border-radius: 5px;
+  border: 1px solid;
+  cursor: pointer;
+  display: inline;
+  margin-top: 30px;
+  height: 30px;
+  font-weight: bold;
+  font-size: large;
+  width: 90%;
 }
 
 html {

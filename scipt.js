@@ -10,6 +10,7 @@ Vue.component("input-form", {
 
   methods: {
     addPedido() {
+      console.log("FLONA", this.pedido);
       this.$emit("add-pedido", this.pedido);
       this.pedido = {};
     },
@@ -17,12 +18,11 @@ Vue.component("input-form", {
 
   template: ` <div id="input">
                 <span>Digite o nome: </span>
-                <input type="text" v-model.trim="this.pedido.name"></input>
+                <input type="text" v-model="pedido.name"></input>
                 <span><br>Digite a quantidade: </span>
                 <input type="number" v-model="pedido.qtd"></input> 
                 <br>
-                <button id="add-btn" v-if="!digitando" @click="addPedido()">ADICIONAR</button>
-                <span v-if="digitando"> {{state}}</span>
+                <button id="add-btn" @click="addPedido()">ADICIONAR</button>
               </div>`,
 });
 
@@ -57,13 +57,14 @@ let app = new Vue({
         this.vazia = true;
       }
     },
-    addPedido() {
-      if (this.pedido.name.length > 0) {
-        this.pedido.name = this.pedido.name.toUpperCase();
-        if (this.pedido.qtd === undefined || this.pedido.qtd > 0) {
-          this.pedidos.push(this.pedido);
-          this.pedido = {};
-          this.vazia = false;
+    addPedido(pedido) {
+      console.log("BLAU", pedido);
+      if (pedido.name.length > 0) {
+        pedido.name = pedido.name.toUpperCase();
+        if (pedido.qtd === undefined || pedido.qtd > 0) {
+          this.pedidos.push(pedido);
+          pedido = {};
+          vazia = false;
         } else {
           alert("PEDIDO DEVE TER QUANTIDADE MAIOR QUE ZERO. \n TENTE DE NOVO!");
         }
@@ -88,7 +89,21 @@ let app = new Vue({
     listaItemString: function () {},
   },
 
+  /**
+   * this way we can watch if there is any change in the pedidos array
+   * if there is no more items in the array, we set the vazia to true
+   * and the other way around
+   *
+   * if vazia is true, we show the message "Lista vazia"
+   */
   watch: {
+    pedidos: function () {
+      if (this.pedidos.length === 0) {
+        this.vazia = true;
+      } else {
+        this.vazia = false;
+      }
+    },
     pedido() {
       if (this.pedido.name.length > 0) {
         this.digitando = true;

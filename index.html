@@ -15,21 +15,21 @@
     
     <div id="app">
         
-        <div id="input">
-            <span>Digite o nome: </span>
+        <!-- <div id="input">
+            <span style="font-size: 25px; font-weight: bold">Digite o nome: </span>
             <input type="text" v-model.trim="pedido.name"></input>
-            <span><br>Digite a quantidade: </span>
+            <span style="font-size: 25px; font-weight: bold"><br>Digite a quantidade: </span>
             <input type="number" v-model="pedido.qtd"></input> 
             <br>
             <button id="add-btn" v-if="!digitando" @click="addPedido()">ADICIONAR</button>
             <span v-if="digitando"> {{state}}</span>
-        </div>
-        <!-- <input-form @add-pedido="addPedido" :pedido="pedido"></input-form>   -->
+        </div> -->
+        <input-form @add-pedido="addPedido"></input-form>  
         <div id="outcome">
             
             <dl>
                 <bold style="margin: 10px">PEDIDOS NA FILA: </bold>
-                <div style="display: flex; justify-content: center;"><h1 v-if="vazia">FILA VAZIA!</h1></div>
+                <div style="display: flex; justify-content: center;"><h1 v-if="vazia">EMPTY QUEUE!</h1></div>
                
                   <ul>
                     <li v-for="(pedido, index) in pedidos" v-cloak>
