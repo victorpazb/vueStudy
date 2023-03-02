@@ -22,7 +22,7 @@
                
                   <ul>
                     <li v-for="(pedido, index) in pedidos" v-cloak>
-                      <bold>{{pedido.name}}</bold>...........................{{pedido.qtd}} refeições
+                      <bold>{{pedido.name}}</bold>...............{{pedido.qtd}} meals
                       <button class="button-item-list" @click="showEditBox(index)">edit</button>
                       <button class="button-item-list delete" @click="deleteOne(index)"><img id="delete-img" src="images/trash.jpg"></button>  
                     </li>

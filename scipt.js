@@ -5,6 +5,8 @@ Vue.component("input-form", {
         name: "",
         qtd: undefined,
       },
+      digitando: false,
+      state: "Digitando...",
     };
   },
 
@@ -15,16 +17,26 @@ Vue.component("input-form", {
     },
   },
 
+  watch: {
+    pedido: function () {
+      if (this.pedido?.name?.length > 0) {
+        this.digitando = true;
+      }
+      setTimeout(() => {
+        this.digitando = false;
+      }, 1000);
+    },
+  },
+
   template: ` <div id="input">
-                <span style="font-size: 25px; font-weight: bold">Digite o nome: </span>
+                <span style="font-size: 25px; font-weight: bold">Client name: </span>
                 <input type="text" v-model="pedido.name"></input>
-                <span style="font-size: 25px; font-weight: bold"><br>Digite a quantidade: </span>
+                <span style="font-size: 25px; font-weight: bold"><br>Quantity of order(s): </span>
                 <input type="number" v-model="pedido.qtd"></input> 
                 <br>
-                <button id="add-btn" @click="addPedido()">ADD ORDER</button>
+                <button id="add-btn" v-if="!digitando" @click="addPedido()">ADD ORDER</button>
+                <span v-if="digitando"> {{state}}</span>
               </div>`,
-  // <button id="add-btn" v-if="!digitando" @click="addPedido()">ADICIONAR</button>
-  // <span v-if="digitando"> {{state}}</span>
 });
 
 let app = new Vue({
@@ -103,14 +115,6 @@ let app = new Vue({
       } else {
         this.vazia = false;
       }
-    },
-    pedido() {
-      if (this.pedido.name.length > 0) {
-        this.digitando = true;
-      }
-      setTimeout(() => {
-        this.digitando = false;
-      }, 1500);
     },
   },
 });
